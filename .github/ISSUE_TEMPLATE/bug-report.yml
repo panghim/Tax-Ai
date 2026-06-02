@@ -1,0 +1,35 @@
+name: Bug report
+description: Report broken behavior in the Tax AI demo or framework contracts.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should happen instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include local commands or UI steps if possible.
+    validations:
+      required: false
+  - type: textarea
+    id: checks
+    attributes:
+      label: Checks
+      value: |
+        - [ ] npm run typecheck
+        - [ ] npm run build
+    validations:
+      required: false

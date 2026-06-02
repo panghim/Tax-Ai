@@ -1,5 +1,5 @@
 {
   "name": "Tax AI",
-  "description": "原生税务合规AI引擎 - 专为中国小微企业设计的智能税务申报平台。",
+  "description": "Open source framework for tax-focused human-AI collaboration.",
   "requestFramePermissions": []
 }

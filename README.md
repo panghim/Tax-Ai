@@ -1,8 +1,10 @@
 # Tax AI
 
+An open source framework for tax-focused human-AI collaboration.
+
 Tax AI is an open source framework prototype for tax-focused human-AI collaboration. It currently ships as a Vite + React + TypeScript application that demonstrates invoice collection, tax declaration flows, AI tax advice, cross-border tax review, blockchain-style evidence tracking, and an open platform integration surface.
 
-The project is being refactored from an AI Studio app into a framework-friendly codebase. The goal is to let future finance and tax agents, operator dashboards, workflow queues, and third-party connectors share the same domain contracts instead of becoming separate one-off tools.
+The goal is to let future finance and tax agents, operator dashboards, workflow queues, and third-party connectors share the same domain contracts instead of becoming separate one-off tools.
 
 ## Current Scope
 
@@ -22,7 +24,7 @@ The framework is organized around four horizontal layers:
 3. Collaboration queue: Cursor and Codex handoff records for open source development.
 4. Quality gates: type checking, build checks, and CI workflows before merging.
 
-See [Framework Architecture](docs/framework-architecture.md) and [Collaboration Queue](docs/collaboration-queue.md).
+See [Framework Architecture](docs/framework-architecture.md), [Collaboration Queue](docs/collaboration-queue.md), and [Codex Usage Plan](docs/codex-usage.md).
 
 ## Run Locally
 
@@ -65,6 +67,10 @@ This repository uses a lightweight Cursor + Codex queue:
 - Codex: repo-wide structure, verification, queue grooming, PR readiness.
 
 Start with [CONTRIBUTING.md](CONTRIBUTING.md), then pick a task from [docs/collaboration-queue.md](docs/collaboration-queue.md).
+
+## Open Source Readiness
+
+Tax AI is being prepared for public open source collaboration. The current support-program application notes are in [docs/oss-application.md](docs/oss-application.md), and release preparation is tracked in [docs/release-checklist.md](docs/release-checklist.md).
 
 ## Status
 

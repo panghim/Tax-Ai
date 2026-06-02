@@ -2,7 +2,7 @@
 
 ## Phase 1: Open Source Baseline
 
-- Replace AI Studio template metadata with project-specific documentation.
+- Maintain project-specific documentation for the open source framework baseline.
 - Add module registry and collaboration contracts.
 - Add CI for type checking and build validation.
 - Define Cursor + Codex task queue.
