@@ -12,6 +12,7 @@ import Settings from './components/Settings';
 import OpenPlatform from './components/OpenPlatform';
 import { Invoice, TaxSummary, InvoiceCategory, InvoiceType, DataSource, RecordStatus, EvidenceType, CompanySettings, TaxpayerType, Employee, Block, KnowledgeItem, ChatMessage, ChainProvider } from './types';
 import { createGenesisBlock, createBlock } from './services/blockchainService';
+import { loadAllFromLocalStorage, saveAllToLocalStorage, exportBackup, parseBackupFile, restoreFromBackup } from './services/workspacePersistence';
 import { LayoutDashboard, FileText, MessageSquareText, Grid, Calculator, Globe, Link, Scale, Blocks, Settings as SettingsIcon } from 'lucide-react';
 
 const App: React.FC = () => {
@@ -88,32 +89,18 @@ const App: React.FC = () => {
 
   // Load from LocalStorage on mount
   useEffect(() => {
-    const savedInvoices = localStorage.getItem('tax_ai_invoices');
-    const savedSettings = localStorage.getItem('tax_ai_settings');
-    const savedEmployees = localStorage.getItem('tax_ai_employees');
-    const savedKnowledge = localStorage.getItem('tax_ai_knowledge');
-    const savedChat = localStorage.getItem('tax_ai_chat_history');
-    
-    if (savedInvoices) {
-      try { setInvoices(JSON.parse(savedInvoices)); } catch (e) { console.error("Failed to parse saved invoices"); }
-    }
-    
-    if (savedSettings) {
-      try { setCompanySettings(JSON.parse(savedSettings)); } catch (e) { console.error("Failed to parse saved settings"); }
-    }
-
-    if (savedEmployees) {
-      try { setEmployees(JSON.parse(savedEmployees)); } catch (e) { console.error("Failed to parse saved employees"); }
-    }
-
-    if (savedKnowledge) {
-      try { setKnowledgeBase(JSON.parse(savedKnowledge)); } catch (e) { console.error("Failed to parse saved knowledge"); }
-    }
-
-    if (savedChat) {
-      try { setChatMessages(JSON.parse(savedChat)); } catch (e) { console.error("Failed to parse saved chat"); }
-    }
-    
+    const saved = loadAllFromLocalStorage({
+      invoices: initialInvoices,
+      settings: initialSettings,
+      employees: initialEmployees,
+      knowledge: [],
+      chatHistory: initialChatMessages
+    });
+    setInvoices(saved.invoices);
+    setCompanySettings(saved.settings);
+    setEmployees(saved.employees);
+    setKnowledgeBase(saved.knowledge);
+    setChatMessages(saved.chatHistory);
     setDataLoaded(true);
   }, []);
 
@@ -137,36 +124,18 @@ const App: React.FC = () => {
     setBlocks(prev => [...prev, newBlock]);
   };
 
-  // Save to LocalStorage on change
+  // Save all state to LocalStorage on change
   useEffect(() => {
     if (dataLoaded) {
-      localStorage.setItem('tax_ai_invoices', JSON.stringify(invoices));
+      saveAllToLocalStorage({
+        invoices,
+        settings: companySettings,
+        employees,
+        knowledge: knowledgeBase,
+        chatHistory: chatMessages
+      });
     }
-  }, [invoices, dataLoaded]);
-
-  useEffect(() => {
-    if (dataLoaded) {
-      localStorage.setItem('tax_ai_settings', JSON.stringify(companySettings));
-    }
-  }, [companySettings, dataLoaded]);
-
-  useEffect(() => {
-    if (dataLoaded) {
-      localStorage.setItem('tax_ai_employees', JSON.stringify(employees));
-    }
-  }, [employees, dataLoaded]);
-
-  useEffect(() => {
-    if (dataLoaded) {
-      localStorage.setItem('tax_ai_knowledge', JSON.stringify(knowledgeBase));
-    }
-  }, [knowledgeBase, dataLoaded]);
-
-  useEffect(() => {
-    if (dataLoaded) {
-      localStorage.setItem('tax_ai_chat_history', JSON.stringify(chatMessages));
-    }
-  }, [chatMessages, dataLoaded]);
+  }, [invoices, companySettings, employees, knowledgeBase, chatMessages, dataLoaded]);
 
 
   const taxSummary: TaxSummary = useMemo(() => {
@@ -217,43 +186,32 @@ const App: React.FC = () => {
 
   // Handle System Backup
   const exportSystemData = () => {
-    const backupData = {
-      version: "1.0.1",
-      exportedAt: new Date().toISOString(),
+    exportBackup({
       settings: companySettings,
-      invoices: invoices,
-      employees: employees,
+      invoices,
+      employees,
       knowledge: knowledgeBase,
       blockchain: blocks,
       chatHistory: chatMessages
-    };
-    
-    const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `TaxAI_Backup_${new Date().toISOString().split('T')[0]}.json`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    });
   };
 
   const importSystemData = async (file: File) => {
     try {
       const text = await file.text();
-      const data = JSON.parse(text);
-      
-      if (data.invoices) setInvoices(data.invoices);
-      if (data.settings) setCompanySettings(data.settings);
-      if (data.employees) setEmployees(data.employees);
-      if (data.knowledge) setKnowledgeBase(data.knowledge);
-      if (data.blockchain) setBlocks(data.blockchain);
-      if (data.chatHistory) setChatMessages(data.chatHistory);
-
-      alert("数据恢复成功！");
+      const data = parseBackupFile(text);
+      restoreFromBackup(data, {
+        setInvoices,
+        setCompanySettings,
+        setEmployees,
+        setKnowledgeBase,
+        setBlocks,
+        setChatMessages
+      });
+      alert('数据恢复成功！');
     } catch (e) {
       console.error(e);
-      alert("导入失败：文件格式不正确");
+      alert('导入失败：文件格式不正确');
     }
   };
 
