@@ -7,11 +7,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+/// Aligned with types.ts (TypeScript domain contracts) as of TAI-006.
+/// Maps to companies table.
 model Company {
   id           String          @id
   name         String
   taxId        String?
-  taxpayerType String
+  taxpayerType String           // TaxpayerType enum: GENERAL | SMALL_SCALE
   industry     String
   region       String
   createdAt    DateTime        @default(now())
@@ -23,35 +25,38 @@ model Company {
   evidence     EvidenceBlock[]
 }
 
+/// Maps to invoices table. Field names aligned with Invoice interface.
 model Invoice {
   id               String   @id
   companyId        String
   number           String
-  invoiceDate      String
-  amount           Decimal
+  date             String              // maps to Invoice.date
+  amount           Decimal             // ex-tax amount
   taxAmount        Decimal
-  totalAmount      Decimal
+  totalAmount      Decimal             // including tax
   counterparty     String
-  type             String
-  category         String
-  source           String
-  status           String
-  evidenceType     String
+  type             String              // InvoiceType enum
+  category         String              // InvoiceCategory enum: INCOME | EXPENSE
+  source           String              // DataSource enum
+  status           String              // RecordStatus enum
+  evidenceType     String              // EvidenceType enum
+  fileName         String?             // Invoice.fileName
   description      String?
   relatedInvoiceId String?
-  tagsJson         String?
+  tagsJson         String?             // Invoice.tags[] as JSON array
   auditNote        String?
-  isRnD            Boolean  @default(false)
+  isRnD            Boolean  @default(false) // Invoice.isRnD
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
   company          Company  @relation(fields: [companyId], references: [id])
 }
 
+/// Maps to employees table. Field names aligned with Employee interface.
 model Employee {
   id                String  @id
   companyId         String
   name              String
-  maskedIdCard      String
+  idCard            String          // maps to Employee.idCard
   department        String
   grossSalary       Decimal @default(0)
   socialSecurity    Decimal @default(0)
@@ -62,41 +67,45 @@ model Employee {
   company           Company @relation(fields: [companyId], references: [id])
 }
 
+/// Maps to knowledge_items table. Field names aligned with KnowledgeItem interface.
 model KnowledgeItem {
   id        String   @id
   companyId String
   content   String
-  source    String
-  tagsJson  String?
+  source    String                  // USER | SYSTEM
+  tagsJson  String?                // KnowledgeItem.tags[] as JSON array
   createdAt DateTime @default(now())
   company   Company  @relation(fields: [companyId], references: [id])
 }
 
+/// Maps to collaboration_events table. Field names aligned with CollaborationEvent contract.
 model CollaborationEvent {
-  id         String   @id
-  companyId String?
-  type       String
-  actor      String
-  moduleId   String
-  traceId    String?
+  id          String   @id
+  companyId   String?
+  type        String                  // CollaborationEventType
+  actor       String                  // CollaborationActor
+  moduleId    String                  // FrameworkModuleId
+  traceId     String?
   payloadJson String
-  occurredAt DateTime @default(now())
-  company    Company? @relation(fields: [companyId], references: [id])
+  occurredAt  DateTime @default(now())
+  company     Company? @relation(fields: [companyId], references: [id])
 }
 
+/// Maps to evidence_blocks table. Field names aligned with Block interface.
+/// Note: id is a DB-generated primary key; txId serves as the business key.
 model EvidenceBlock {
   id              String   @id
   companyId       String?
-  blockIndex      Int
-  timestamp       DateTime
-  dataJson        String
-  previousHash    String
-  hash            String
-  nonce           Int
-  type            String
-  provider        String
-  txId            String
-  relatedTxId     String?
-  amendmentReason String?
+  blockIndex      Int                 // Block.index
+  timestamp       DateTime            // Block.timestamp
+  dataJson        String              // Block.data
+  previousHash    String              // Block.previousHash
+  hash            String              // Block.hash
+  nonce           Int                 // Block.nonce
+  type            String              // Block type enum
+  provider        String              // ChainProvider
+  txId            String              // Block.txId (business key)
+  relatedTxId     String?             // Block.relatedTxId
+  amendmentReason String?             // Block.amendmentReason
   company         Company? @relation(fields: [companyId], references: [id])
 }
