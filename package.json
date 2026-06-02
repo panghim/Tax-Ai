@@ -1,13 +1,23 @@
 {
   "name": "tax-ai",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description": "Open source tax AI collaboration framework prototype for invoices, declarations, risk review, cross-border tax and audit evidence.",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "typecheck": "tsc --noEmit",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check": "npm run typecheck && npm run build"
   },
+  "keywords": [
+    "tax",
+    "ai",
+    "compliance",
+    "invoice",
+    "collaboration-framework"
+  ],
+  "license": "MIT",
   "dependencies": {
     "react": "^19.2.0",
     "@google/genai": "^1.30.0",
