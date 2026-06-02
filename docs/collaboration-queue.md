@@ -33,6 +33,8 @@ This repository uses a lightweight queue so Cursor and Codex can work independen
 | TAI-007 | Backlog | Cursor | Open platform | Convert hard-coded integration app data into a typed registry file | `npm run typecheck`, `npm run build` | Keep UI behavior unchanged. |
 | TAI-008 | Review | Codex | Governance | Add issue templates, PR template and release checklist for public contributors | `npm run check` | Added application readiness docs, issue templates, PR template and release checklist. |
 | TAI-009 | Done | Codex | OSS readiness | Configure GitHub topics, create public issues for backlog tasks and publish `v0.1.0` release | GitHub issue/release checks | Completed: topics configured, public issues created, and `v0.1.0` release published. |
+| TAI-010 | Active | loyputh + Codex | Maintainer onboarding | Accept collaborator invitation, choose a first issue, and open a small scoped PR | `npm run check` | Start with issue #6 or #7; Codex keeps queue and PR handoff notes aligned. |
+| TAI-011 | Backlog | Codex | Maintenance rhythm | Keep the collaboration queue, public issues, and release readiness notes updated weekly | GitHub issue/release checks | Review stale issues, update queue states, and prepare the next release notes. |
 
 ## Handoff Template
 
