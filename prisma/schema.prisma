@@ -1,0 +1,102 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Company {
+  id           String          @id
+  name         String
+  taxId        String?
+  taxpayerType String
+  industry     String
+  region       String
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+  invoices     Invoice[]
+  employees    Employee[]
+  knowledge    KnowledgeItem[]
+  events       CollaborationEvent[]
+  evidence     EvidenceBlock[]
+}
+
+model Invoice {
+  id               String   @id
+  companyId        String
+  number           String
+  invoiceDate      String
+  amount           Decimal
+  taxAmount        Decimal
+  totalAmount      Decimal
+  counterparty     String
+  type             String
+  category         String
+  source           String
+  status           String
+  evidenceType     String
+  description      String?
+  relatedInvoiceId String?
+  tagsJson         String?
+  auditNote        String?
+  isRnD            Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  company          Company  @relation(fields: [companyId], references: [id])
+}
+
+model Employee {
+  id                String  @id
+  companyId         String
+  name              String
+  maskedIdCard      String
+  department        String
+  grossSalary       Decimal @default(0)
+  socialSecurity    Decimal @default(0)
+  housingFund       Decimal @default(0)
+  specialDeductions Decimal @default(0)
+  taxPayable        Decimal @default(0)
+  netSalary         Decimal @default(0)
+  company           Company @relation(fields: [companyId], references: [id])
+}
+
+model KnowledgeItem {
+  id        String   @id
+  companyId String
+  content   String
+  source    String
+  tagsJson  String?
+  createdAt DateTime @default(now())
+  company   Company  @relation(fields: [companyId], references: [id])
+}
+
+model CollaborationEvent {
+  id         String   @id
+  companyId String?
+  type       String
+  actor      String
+  moduleId   String
+  traceId    String?
+  payloadJson String
+  occurredAt DateTime @default(now())
+  company    Company? @relation(fields: [companyId], references: [id])
+}
+
+model EvidenceBlock {
+  id              String   @id
+  companyId       String?
+  blockIndex      Int
+  timestamp       DateTime
+  dataJson        String
+  previousHash    String
+  hash            String
+  nonce           Int
+  type            String
+  provider        String
+  txId            String
+  relatedTxId     String?
+  amendmentReason String?
+  company         Company? @relation(fields: [companyId], references: [id])
+}
