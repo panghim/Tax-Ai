@@ -32,7 +32,7 @@ This repository uses a lightweight queue so Cursor and Codex can work independen
 | TAI-006 | Backlog | Codex | Backend draft | Align `db/schema.sql` and `prisma/schema.prisma` with current domain contracts | `npm run typecheck`, `npm run build` | Schema remains draft until a backend service is introduced. |
 | TAI-007 | Backlog | Cursor | Open platform | Convert hard-coded integration app data into a typed registry file | `npm run typecheck`, `npm run build` | Keep UI behavior unchanged. |
 | TAI-008 | Review | Codex | Governance | Add issue templates, PR template and release checklist for public contributors | `npm run check` | Added application readiness docs, issue templates, PR template and release checklist. |
-| TAI-009 | Backlog | Codex | OSS readiness | Configure GitHub topics, create public issues for backlog tasks and publish `v0.1.0` release | GitHub issue/release checks | Requires repository metadata changes on GitHub. |
+| TAI-009 | Done | Codex | OSS readiness | Configure GitHub topics, create public issues for backlog tasks and publish `v0.1.0` release | GitHub issue/release checks | Completed: topics configured, public issues created, and `v0.1.0` release published. |
 
 ## Handoff Template
 
