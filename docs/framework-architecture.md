@@ -1,6 +1,6 @@
 # Framework Architecture
 
-Tax AI is moving from a single AI Studio application into an open source tax collaboration framework. The current React app remains the reference workbench, while shared contracts and module boundaries are introduced in `framework/`.
+Tax AI is an open source tax collaboration framework. The current React app is the reference workbench, while shared contracts and module boundaries are introduced in `framework/`.
 
 ## Design Goals
 

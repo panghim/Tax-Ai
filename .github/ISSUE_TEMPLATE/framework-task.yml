@@ -1,0 +1,30 @@
+name: Framework task
+description: Track framework extraction, refactor or architecture work.
+title: "[Framework]: "
+labels: ["framework"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What should this task accomplish?
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: Which modules, files or contracts are affected?
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification
+      description: Which checks should pass?
+      value: |
+        - [ ] npm run typecheck
+        - [ ] npm run build
+        - [ ] Manual UI check if visual behavior changes
+    validations:
+      required: true

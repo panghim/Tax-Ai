@@ -1,0 +1,26 @@
+name: Feature request
+description: Propose a new Tax AI framework capability.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use case
+      description: What tax, invoice, evidence or collaboration workflow does this support?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Describe the intended behavior and framework boundary.
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks and limitations
+      description: Include any tax policy, privacy, security or data sensitivity concerns.
+    validations:
+      required: false
