@@ -2,6 +2,36 @@
 
 This log records lightweight maintenance passes for Tax AI. It is intended to keep the open source project visibly maintained without creating noisy code churn.
 
+## 2026-06-08
+
+### Repository Health
+
+- `main` is up to date and remains protected from force pushes and deletion.
+- `loyputh` still has `write` access.
+- No Codex for OSS application outcome has been recorded in the repository yet.
+
+### Open Pull Requests
+
+| PR | Owner | Task | Status |
+| --- | --- | --- | --- |
+| #15 | loyputh | TAI-003 AI provider interface | CI passing |
+| #17 | loyputh | TAI-004 tax calculations and TAI-012 Vitest tests | CI passing |
+| #18 | loyputh | TAI-007 typed integration registry | CI passing |
+| #19 | loyputh | TAI-002 workspace persistence extraction | CI passing |
+| #20 | loyputh | TAI-006 schema alignment | CI passing |
+| #22 | loyputh | TAI-005 invoice workbench component split | CI passing |
+
+### Queue Changes
+
+- Marked TAI-005 as `Review` because PR #22 is open and checks are passing.
+- Refreshed TAI-011 handoff to reflect the 2026-06-08 maintenance sync.
+
+### Next Actions
+
+- Review and merge the passing framework extraction PRs in a controlled order.
+- After merging PRs, close linked issues and update the queue from `Review` to `Done`.
+- Consider preparing a `v0.2.0` release once the current extraction PR set lands.
+
 ## 2026-06-03
 
 ### Repository Health
