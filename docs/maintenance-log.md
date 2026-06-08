@@ -32,6 +32,13 @@ This log records lightweight maintenance passes for Tax AI. It is intended to ke
 - After merging PRs, close linked issues and update the queue from `Review` to `Done`.
 - Consider preparing a `v0.2.0` release once the current extraction PR set lands.
 
+### Manual Refresh
+
+- Rechecked open PRs #15, #17, #18, #19, #20, and #22 after the weekly sync.
+- All six PRs still have passing CI.
+- No queue state change was needed beyond the earlier 2026-06-08 sync.
+- Next useful maintenance action remains PR review and controlled merge sequencing.
+
 ## 2026-06-03
 
 ### Repository Health
