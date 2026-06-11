@@ -1,5 +1,6 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { Invoice, InvoiceType, InvoiceCategory, DataSource, RecordStatus, EvidenceType, CrossBorderProductInfo, TaxSummary, ComplianceReport, AIModelId, TramReport, KnowledgeItem, InvoiceDraft, ChatResponse } from "../types";
+import { aiProviderRegistry } from './ai';
 
 const apiKey = process.env.API_KEY || '';
 const ai = new GoogleGenAI({ apiKey });

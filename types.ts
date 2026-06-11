@@ -199,6 +199,7 @@ export interface CompanySettings {
 export type ChainProvider = 'ANTCHAIN' | 'HUAWEI' | 'TENCENT' | 'BSN';
 
 export interface Block {
+  id?: string; // DB-generated primary key; txId is the business key
   index: number;
   timestamp: string;
   data: any; // The invoice or tax record
