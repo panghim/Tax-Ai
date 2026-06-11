@@ -33,6 +33,13 @@ This log records lightweight maintenance passes for Tax AI. It is intended to ke
 - Review the larger bundle warning and decide whether to open a code-splitting issue.
 - Continue weekly maintenance while the Codex for OSS application is pending.
 
+### Release Follow-up
+
+- Prepared and merged PR #27 for the `v0.2.0` release plan.
+- Published `v0.2.0` from `main`.
+- Opened issue #26 as TAI-013 to track bundle size and code splitting.
+- Next release-facing action is adding a hosted demo and README screenshots.
+
 ## 2026-06-08
 
 ### Repository Health
