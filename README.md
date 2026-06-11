@@ -6,6 +6,14 @@ Tax AI is an open source framework prototype for tax-focused human-AI collaborat
 
 The goal is to let future finance and tax agents, operator dashboards, workflow queues, and third-party connectors share the same domain contracts instead of becoming separate one-off tools.
 
+## Demo
+
+The public demo is deployed with GitHub Pages:
+
+[https://panghim.github.io/Tax-Ai/](https://panghim.github.io/Tax-Ai/)
+
+The demo is a browser-only framework preview. AI calls that require external credentials may fall back to mock behavior or show service errors unless `GEMINI_API_KEY` is configured in a local environment.
+
 ## Current Scope
 
 - Invoice and evidence intake: invoices, contracts, receipts, bank and platform sync simulations.
@@ -76,7 +84,7 @@ Tax AI is being prepared for public open source collaboration. The current suppo
 ## Releases
 
 - `v0.1.0`: open source framework baseline.
-- `v0.2.0`: planned framework extraction release covering AI provider adapters, deterministic tax calculation tests, workspace persistence, integration registry extraction, schema alignment, and invoice workbench component split.
+- `v0.2.0`: framework extraction release covering AI provider adapters, deterministic tax calculation tests, workspace persistence, integration registry extraction, schema alignment, and invoice workbench component split.
 
 ## Status
 
