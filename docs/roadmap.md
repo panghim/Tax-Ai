@@ -9,10 +9,10 @@
 
 ## Phase 2: Framework Extraction
 
-- Move workspace persistence out of `App.tsx`.
-- Extract deterministic tax calculations into pure functions.
-- Split large screens into module-level subcomponents.
-- Add a provider interface for AI model adapters.
+- Move workspace persistence out of `App.tsx`. Done.
+- Extract deterministic tax calculations into pure functions. Done.
+- Split large screens into module-level subcomponents. In progress.
+- Add a provider interface for AI model adapters. Done.
 
 ## Phase 3: Backend-Ready Contracts
 
@@ -33,3 +33,14 @@
 - Publish contribution guides, issue templates and release checklist.
 - Document module plugin patterns.
 - Provide sample implementations for local demo, hosted backend and enterprise deployment.
+
+## Current Release Focus
+
+`v0.2.0` should package the completed framework extraction batch:
+
+- AI provider adapter boundary.
+- deterministic tax calculation service and tests.
+- workspace persistence service.
+- typed integration registry.
+- SQL and Prisma schema alignment.
+- invoice workbench component split.

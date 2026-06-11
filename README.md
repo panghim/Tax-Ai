@@ -43,6 +43,7 @@ Set `GEMINI_API_KEY` in `.env.local` if you want Gemini-powered document parsing
 ```bash
 npm run typecheck
 npm run build
+npm run test
 npm run check
 ```
 
@@ -71,6 +72,11 @@ Start with [CONTRIBUTING.md](CONTRIBUTING.md), then pick a task from [docs/colla
 ## Open Source Readiness
 
 Tax AI is being prepared for public open source collaboration. The current support-program application notes are in [docs/oss-application.md](docs/oss-application.md), and release preparation is tracked in [docs/release-checklist.md](docs/release-checklist.md).
+
+## Releases
+
+- `v0.1.0`: open source framework baseline.
+- `v0.2.0`: planned framework extraction release covering AI provider adapters, deterministic tax calculation tests, workspace persistence, integration registry extraction, schema alignment, and invoice workbench component split.
 
 ## Status
 

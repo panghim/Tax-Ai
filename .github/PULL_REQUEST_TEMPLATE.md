@@ -9,6 +9,7 @@
 
 - [ ] `npm run typecheck`
 - [ ] `npm run build`
+- [ ] `npm run test`
 - [ ] Manual UI check if visual behavior changed
 
 ## Tax / Policy Safety
