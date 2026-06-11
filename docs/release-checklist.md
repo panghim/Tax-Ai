@@ -12,12 +12,14 @@ Use this checklist before publishing a public release.
 - [ ] Release notes include status and known limitations.
 - [ ] Tax policy or declaration claims are marked as prototype unless verified.
 
-## Recommended for `v0.1.0`
+## Recommended for `v0.2.0`
 
 - [ ] Public issues exist for the next framework tasks.
 - [ ] Repository topics are configured on GitHub.
 - [ ] A demo URL is added if deployment is available.
 - [ ] The release tag is signed or created from a clean `main`.
+- [ ] Release notes mention merged PRs #15, #17, #18, #19, #20, and #22.
+- [ ] The release states that Tax AI remains a framework prototype, not production tax software.
 
 ## Release Note Template
 

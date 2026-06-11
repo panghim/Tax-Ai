@@ -41,11 +41,19 @@ Codex helps convert a large prototype into a maintainable framework by:
 
 The project is a good fit for Codex because much of the work is repo-wide and repetitive: refactor, document, verify, queue follow-up, and prepare reviewable pull requests.
 
+## Completed Milestones
+
+1. Published the initial `v0.1.0` framework baseline release.
+2. Added a second maintainer with write access.
+3. Introduced AI provider interfaces for Gemini, DeepSeek, Doubao and mock providers.
+4. Extracted deterministic tax calculations and added Vitest coverage.
+5. Split large invoice and integration modules into smaller framework pieces.
+6. Aligned SQL and Prisma schema drafts with the domain contracts.
+7. Moved workspace persistence and backup handling out of the app shell.
+
 ## Near-Term Milestones
 
-1. Extract deterministic tax calculations into testable functions.
-2. Introduce model provider interfaces for AI services.
-3. Split large UI screens into smaller framework modules.
-4. Add tests and fixtures for core tax scenarios.
-5. Align SQL and Prisma schemas with the public domain contracts.
-6. Publish an initial `v0.1.0` framework baseline release.
+1. Publish `v0.2.0` for the completed framework extraction batch.
+2. Add a hosted demo link.
+3. Add screenshots and architecture diagrams to the README.
+4. Continue weekly maintenance while the Codex for OSS application is pending.
