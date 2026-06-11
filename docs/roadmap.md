@@ -44,3 +44,7 @@
 - typed integration registry.
 - SQL and Prisma schema alignment.
 - invoice workbench component split.
+
+## Public Demo
+
+The project uses GitHub Pages for a public demo at `https://panghim.github.io/Tax-Ai/`. The demo is intended for framework review and open source evaluation, not production tax filing.

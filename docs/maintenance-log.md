@@ -38,7 +38,13 @@ This log records lightweight maintenance passes for Tax AI. It is intended to ke
 - Prepared and merged PR #27 for the `v0.2.0` release plan.
 - Published `v0.2.0` from `main`.
 - Opened issue #26 as TAI-013 to track bundle size and code splitting.
-- Next release-facing action is adding a hosted demo and README screenshots.
+- Next release-facing action is validating the hosted demo and adding README screenshots.
+
+### Demo Follow-up
+
+- Added GitHub Pages deployment plan for `https://panghim.github.io/Tax-Ai/`.
+- Configured Vite base path for repository Pages deployment.
+- Demo should be validated after the first Pages workflow completes.
 
 ## 2026-06-08
 

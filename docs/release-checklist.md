@@ -20,6 +20,7 @@ Use this checklist before publishing a public release.
 - [ ] The release tag is signed or created from a clean `main`.
 - [ ] Release notes mention merged PRs #15, #17, #18, #19, #20, and #22.
 - [ ] The release states that Tax AI remains a framework prototype, not production tax software.
+- [ ] GitHub Pages demo loads after the release workflow completes.
 
 ## Release Note Template
 

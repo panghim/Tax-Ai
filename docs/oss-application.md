@@ -9,6 +9,7 @@ Tax AI is an open source framework for tax-focused human-AI collaboration. It pr
 ## Repository
 
 - GitHub: `https://github.com/panghim/Tax-Ai`
+- Demo: `https://panghim.github.io/Tax-Ai/`
 - License: MIT
 - Stack: TypeScript, React, Vite
 - Status: framework baseline, not production tax software
@@ -53,7 +54,6 @@ The project is a good fit for Codex because much of the work is repo-wide and re
 
 ## Near-Term Milestones
 
-1. Publish `v0.2.0` for the completed framework extraction batch.
-2. Add a hosted demo link.
-3. Add screenshots and architecture diagrams to the README.
-4. Continue weekly maintenance while the Codex for OSS application is pending.
+1. Validate the GitHub Pages demo after the first deployment.
+2. Add screenshots and architecture diagrams to the README.
+3. Continue weekly maintenance while the Codex for OSS application is pending.
