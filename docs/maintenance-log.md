@@ -44,7 +44,10 @@ This log records lightweight maintenance passes for Tax AI. It is intended to ke
 
 - Added GitHub Pages deployment plan for `https://panghim.github.io/Tax-Ai/`.
 - Configured Vite base path for repository Pages deployment.
-- Demo should be validated after the first Pages workflow completes.
+- Demo deployment completed successfully.
+- Verified `https://panghim.github.io/Tax-Ai/` returns HTTP 200 and references `/Tax-Ai/assets/...`.
+- Updated repository homepage to the public demo URL.
+- Opened issue #31 as TAI-015 for README screenshots and architecture diagram.
 
 ## 2026-06-08
 
