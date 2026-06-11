@@ -12,6 +12,7 @@ import Settings from './components/Settings';
 import OpenPlatform from './components/OpenPlatform';
 import { Invoice, TaxSummary, InvoiceCategory, InvoiceType, DataSource, RecordStatus, EvidenceType, CompanySettings, TaxpayerType, Employee, Block, KnowledgeItem, ChatMessage, ChainProvider } from './types';
 import { createGenesisBlock, createBlock } from './services/blockchainService';
+import { calculateTaxSummary } from './services/taxCalculation';
 import { LayoutDashboard, FileText, MessageSquareText, Grid, Calculator, Globe, Link, Scale, Blocks, Settings as SettingsIcon } from 'lucide-react';
 
 const App: React.FC = () => {
@@ -170,50 +171,11 @@ const App: React.FC = () => {
 
 
   const taxSummary: TaxSummary = useMemo(() => {
-    let totalIncome = 0;
-    let totalExpense = 0;
-    let totalInputVAT = 0; // Income VAT (deductible)
-    let totalOutputVAT = 0; // Outcome VAT (payable)
-
-    invoices.forEach(inv => {
-      if (inv.category === InvoiceCategory.INCOME) {
-        totalIncome += inv.amount;
-        if (inv.status === RecordStatus.INVOICED) {
-           totalOutputVAT += inv.taxAmount;
-        }
-      } else {
-        totalExpense += inv.amount;
-        if (inv.status === RecordStatus.INVOICED) {
-           totalInputVAT += inv.taxAmount;
-        }
-      }
+    return calculateTaxSummary({
+      invoices,
+      taxpayerType: companySettings.taxpayerType
     });
-
-    let payableVAT = 0;
-    
-    // Logic based on Taxpayer Type
-    if (companySettings.taxpayerType === TaxpayerType.GENERAL) {
-      // General Taxpayer: Output - Input
-      payableVAT = Math.max(0, totalOutputVAT - totalInputVAT);
-    } else {
-      // Small Scale: Usually 1% or 3% of Income (Simplified)
-      // Assuming invoices taxAmount is already calculated correctly for simple collection
-      payableVAT = totalOutputVAT; 
-    }
-
-    const profit = Math.max(0, totalIncome - totalExpense);
-    const estimatedIncomeTax = profit * 0.25;
-
-    return {
-      totalIncome,
-      totalExpense,
-      totalInputVAT,
-      totalOutputVAT,
-      payableVAT,
-      estimatedIncomeTax,
-      surcharges: payableVAT * 0.12 
-    };
-  }, [invoices, companySettings]);
+  }, [invoices, companySettings.taxpayerType]);
 
   // Handle System Backup
   const exportSystemData = () => {
