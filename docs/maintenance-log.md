@@ -2,6 +2,37 @@
 
 This log records lightweight maintenance passes for Tax AI. It is intended to keep the open source project visibly maintained without creating noisy code churn.
 
+## 2026-06-11
+
+### Repository Health
+
+- Merged all open maintainer PRs from `loyputh`.
+- Open PR count is now zero.
+- Open issue count is now one: TAI-011 weekly collaboration queue and release readiness maintenance.
+- `npm run check` passes, including 25 Vitest tests.
+
+### Merged Pull Requests
+
+| PR | Owner | Task | Result |
+| --- | --- | --- | --- |
+| #15 | loyputh | TAI-003 AI provider interface | Merged |
+| #17 | loyputh | TAI-004 tax calculations and TAI-012 Vitest tests | Merged |
+| #18 | loyputh | TAI-007 typed integration registry | Merged |
+| #19 | loyputh | TAI-002 workspace persistence extraction | Merged after resolving `App.tsx` conflict |
+| #20 | loyputh | TAI-006 schema alignment | Merged |
+| #22 | loyputh | TAI-005 invoice workbench component split | Merged |
+
+### Queue Changes
+
+- Marked TAI-002, TAI-003, TAI-004, TAI-005, TAI-006, TAI-007, and TAI-012 as `Done`.
+- Kept TAI-011 active for ongoing maintenance.
+
+### Next Actions
+
+- Prepare a `v0.2.0` release plan for the merged framework extraction batch.
+- Review the larger bundle warning and decide whether to open a code-splitting issue.
+- Continue weekly maintenance while the Codex for OSS application is pending.
+
 ## 2026-06-08
 
 ### Repository Health
