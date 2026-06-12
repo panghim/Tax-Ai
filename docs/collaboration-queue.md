@@ -38,7 +38,7 @@ This repository uses a lightweight queue so Cursor and Codex can work independen
 | TAI-012 | Done | loyputh | Testing | Introduce Vitest and unit test coverage for deterministic tax calculations | `npm run check` | Completed in PR #17; this also supports TAI-004. |
 | TAI-013 | Backlog | Codex | Performance | Track bundle size and add code splitting | `npm run check` | Issue #26 tracks the current Vite bundle-size warning. |
 | TAI-014 | Done | Codex | Release | Publish `v0.2.0` framework extraction release | `npm run check`, GitHub release checks | Completed: `v0.2.0` published from `main`. |
-| TAI-015 | Backlog | Codex | Documentation | Add README screenshots and architecture diagram | README render check | Issue #31 tracks screenshots and diagram after the Pages demo stabilized. |
+| TAI-015 | Active | Codex | Documentation | Add README screenshots and architecture diagram | README render check | README badges and Mermaid architecture diagram are in progress; issue #31 remains open for screenshots. |
 
 ## Handoff Template
 

@@ -2,6 +2,11 @@
 
 An open source framework for tax-focused human-AI collaboration.
 
+[![CI](https://github.com/panghim/Tax-Ai/actions/workflows/ci.yml/badge.svg)](https://github.com/panghim/Tax-Ai/actions/workflows/ci.yml)
+[![Demo](https://github.com/panghim/Tax-Ai/actions/workflows/pages.yml/badge.svg)](https://github.com/panghim/Tax-Ai/actions/workflows/pages.yml)
+[![Release](https://img.shields.io/github/v/release/panghim/Tax-Ai)](https://github.com/panghim/Tax-Ai/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Tax AI is an open source framework prototype for tax-focused human-AI collaboration. It currently ships as a Vite + React + TypeScript application that demonstrates invoice collection, tax declaration flows, AI tax advice, cross-border tax review, blockchain-style evidence tracking, and an open platform integration surface.
 
 The goal is to let future finance and tax agents, operator dashboards, workflow queues, and third-party connectors share the same domain contracts instead of becoming separate one-off tools.
@@ -13,6 +18,32 @@ The public demo is deployed with GitHub Pages:
 [https://panghim.github.io/Tax-Ai/](https://panghim.github.io/Tax-Ai/)
 
 The demo is a browser-only framework preview. AI calls that require external credentials may fall back to mock behavior or show service errors unless `GEMINI_API_KEY` is configured in a local environment.
+
+## Architecture
+
+```mermaid
+flowchart LR
+  Human["Human maintainer / operator"] --> Workbench["React workbench"]
+  Codex["Codex maintenance loop"] --> Queue["Collaboration queue"]
+  Cursor["Cursor implementation loop"] --> Queue
+
+  Workbench --> Domain["Domain modules"]
+  Domain --> Invoice["Invoice workbench"]
+  Domain --> Declaration["Tax declaration"]
+  Domain --> CrossBorder["Cross-border review"]
+  Domain --> OpenPlatform["Open platform"]
+
+  Workbench --> Assistant["AI assistant"]
+  Assistant --> Providers["Model provider adapters"]
+  Providers --> Gemini["Gemini"]
+  Providers --> LocalMocks["DeepSeek / Doubao / mock providers"]
+
+  Workbench --> Evidence["Evidence ledger"]
+  Workbench --> Persistence["Workspace persistence"]
+  Queue --> Releases["Issues, PRs, releases"]
+```
+
+The architecture direction is documented in [docs/framework-architecture.md](docs/framework-architecture.md). The queue that keeps human and AI maintainers aligned is tracked in [docs/collaboration-queue.md](docs/collaboration-queue.md).
 
 ## Current Scope
 
@@ -85,6 +116,13 @@ Tax AI is being prepared for public open source collaboration. The current suppo
 
 - `v0.1.0`: open source framework baseline.
 - `v0.2.0`: framework extraction release covering AI provider adapters, deterministic tax calculation tests, workspace persistence, integration registry extraction, schema alignment, and invoice workbench component split.
+
+## Maintainer Activity
+
+- Public demo deployed with GitHub Pages.
+- `v0.2.0` release published after a maintainer PR batch.
+- `loyputh` added as a maintainer with write access.
+- Weekly maintenance records are kept in [docs/maintenance-log.md](docs/maintenance-log.md).
 
 ## Status
 

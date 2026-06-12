@@ -48,6 +48,7 @@ This log records lightweight maintenance passes for Tax AI. It is intended to ke
 - Verified `https://panghim.github.io/Tax-Ai/` returns HTTP 200 and references `/Tax-Ai/assets/...`.
 - Updated repository homepage to the public demo URL.
 - Opened issue #31 as TAI-015 for README screenshots and architecture diagram.
+- Added README badges and a Mermaid architecture diagram as the first TAI-015 documentation improvement.
 
 ## 2026-06-08
 
