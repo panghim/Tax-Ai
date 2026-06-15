@@ -124,6 +124,7 @@ Tax AI is being prepared for public open source collaboration. The current suppo
 - Public demo deployed with GitHub Pages.
 - `v0.2.0` release published after a maintainer PR batch.
 - `loyputh` added as a maintainer with write access.
+- Community traction has reached 35+ GitHub stars and 2 forks.
 - Weekly maintenance records are kept in [docs/maintenance-log.md](docs/maintenance-log.md).
 
 ## Status
