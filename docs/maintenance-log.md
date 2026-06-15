@@ -50,6 +50,7 @@ This log records lightweight maintenance passes for Tax AI. It is intended to ke
 - Opened issue #31 as TAI-015 for README screenshots and architecture diagram.
 - Added README badges and a Mermaid architecture diagram as the first TAI-015 documentation improvement.
 - Added the first live demo screenshot from GitHub Pages to the README.
+- Recorded community traction: 35+ GitHub stars and 2 forks after the public demo and `v0.2.0` release.
 
 ## 2026-06-08
 
