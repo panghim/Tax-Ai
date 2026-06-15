@@ -19,6 +19,8 @@ The public demo is deployed with GitHub Pages:
 
 The demo is a browser-only framework preview. AI calls that require external credentials may fall back to mock behavior or show service errors unless `GEMINI_API_KEY` is configured in a local environment.
 
+![Tax AI dashboard screenshot](docs/assets/screenshots/tax-ai-dashboard.png)
+
 ## Architecture
 
 ```mermaid
