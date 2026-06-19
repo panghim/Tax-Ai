@@ -2,6 +2,19 @@
 
 This log records lightweight maintenance passes for Tax AI. It is intended to keep the open source project visibly maintained without creating noisy code churn.
 
+## 2026-06-19
+
+### Repository Health
+
+- PR #36 remains open with passing CI for route-level lazy loading and bundle splitting.
+- The public framework now has an explicit private workflow adapter boundary so commercial workflow cores can connect back to Tax AI without exposing customer data or credentials.
+
+### Framework Follow-up
+
+- Added `PrivateWorkflowAdapterManifest`, `WorkflowSnapshotSafetyContract`, and `WorkflowAdapterSnapshot` contracts.
+- Added documentation for public/private workflow adapter responsibilities.
+- Added TAI-016 to the collaboration queue for the private-core adapter boundary.
+
 ## 2026-06-11
 
 ### Repository Health
