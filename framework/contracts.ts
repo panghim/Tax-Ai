@@ -60,6 +60,58 @@ export interface TaxAiWorkspaceState {
   chatMessages: ChatMessage[];
 }
 
+export type WorkflowAdapterVisibility = 'public-demo' | 'private-core';
+
+export type WorkflowAdapterCapability =
+  | 'file_import'
+  | 'human_review'
+  | 'audit_summary'
+  | 'aggregation_summary'
+  | 'export_preview'
+  | 'source_specific_parsing'
+  | 'term_mapping'
+  | 'reconciliation_policy'
+  | 'customer_delivery';
+
+export interface WorkflowSnapshotSafetyContract {
+  version: string;
+  includesCustomerData: boolean;
+  includesCredentials: boolean;
+  allowedPayloadKeys: string[];
+}
+
+export interface PrivateWorkflowAdapterManifest {
+  adapterId: string;
+  adapterVersion: string;
+  workflowType: string;
+  displayName: string;
+  visibility: WorkflowAdapterVisibility;
+  supportedSources: string[];
+  publicCapabilities: WorkflowAdapterCapability[];
+  privateCapabilities: WorkflowAdapterCapability[];
+  snapshotContract: WorkflowSnapshotSafetyContract;
+}
+
+export interface WorkflowAdapterSnapshot<TMetrics = Record<string, number>> {
+  id: string;
+  adapterId: string;
+  workflowType: string;
+  title: string;
+  status: string;
+  metrics: TMetrics;
+  reviewSummaries: Array<{
+    id: string;
+    reason: string;
+    message: string;
+  }>;
+  aggregationSummaries: Array<{
+    category: string;
+    accountName: string;
+    amount: number;
+    currency: string;
+  }>;
+}
+
 export interface ModuleCapability {
   id: string;
   title: string;
