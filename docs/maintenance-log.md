@@ -2,6 +2,25 @@
 
 This log records lightweight maintenance passes for Tax AI. It is intended to keep the open source project visibly maintained without creating noisy code churn.
 
+## 2026-06-16
+
+### Repository Health
+
+- Open PR count was zero before this maintenance pass.
+- Open issues remained focused on README screenshots, bundle size/code splitting, and weekly queue maintenance.
+- `npm run check` passes, including 25 Vitest tests.
+
+### Performance Follow-up
+
+- Added route-level lazy loading for major feature modules in `App.tsx`.
+- Production build changed from a single 1,242.11 kB entry chunk to a 220.24 kB entry chunk with feature-specific async chunks.
+- The previous Vite warning for chunks larger than 500 kB no longer appears in the build output.
+
+### Queue Changes
+
+- Moved TAI-013 from `Backlog` to `Review`.
+- Next useful maintenance action is to close the duplicate bundle-size tracking issue after the code-splitting PR is merged.
+
 ## 2026-06-11
 
 ### Repository Health
