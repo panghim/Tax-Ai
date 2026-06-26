@@ -28,6 +28,7 @@ The legacy domain types are still in `types.ts`. New framework-level contracts l
 - `ModuleCapability`: a capability-level unit that can become a plugin, service, workflow node or agent tool.
 - `CollaborationEvent`: an event envelope for human, Cursor, Codex and system actions.
 - `TaxAiWorkspaceState`: the current app state boundary used for future persistence and backend APIs.
+- `PrivateWorkflowAdapterManifest` and `WorkflowAdapterSnapshot`: the public contract for private-core workflows that should integrate with Tax AI without exposing customer data, credentials or proprietary parser internals.
 
 `framework/moduleRegistry.ts` maps the existing screens into framework modules. This registry is the preferred place to add new horizontal capabilities before editing navigation or large components.
 
@@ -40,6 +41,7 @@ Future finance/tax human-AI collaboration frameworks should integrate through th
 3. Evidence boundary: route important artifacts into the evidence ledger interface before connecting a real blockchain or notary service.
 4. Assistant boundary: move Gemini, DeepSeek, Doubao and future models behind a provider interface with consistent citations and risk disclaimers.
 5. Backend boundary: migrate localStorage state to API-backed persistence using the SQL/Prisma schema drafts.
+6. Private workflow boundary: connect commercial workflows through safe manifests and snapshots, documented in `docs/private-workflow-adapters.md`.
 
 ## Refactor Principles
 

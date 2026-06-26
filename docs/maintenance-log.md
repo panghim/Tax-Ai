@@ -8,14 +8,47 @@ This log records lightweight maintenance passes for Tax AI. It is intended to ke
 
 - Public traction increased to 65 GitHub stars and 2 forks.
 - The GitHub Pages demo remains configured at `https://panghim.github.io/Tax-Ai/`.
-- PR #36 remains open with passing CI for route-level lazy loading and bundle splitting.
-- PR #38 remains open with passing CI for the public/private workflow adapter boundary.
+- PR #36 has been merged for route-level lazy loading and bundle splitting.
+- PR #38 has been merged for the public/private workflow adapter boundary.
+- PR #39 records the latest community traction update.
 
 ### Queue Changes
 
 - Refreshed public open source application notes with the latest community signal.
 - Kept TAI-011 active for weekly maintenance.
-- Next useful action is reviewer/owner validation for PR #36 and PR #38 so the queue can move those tracks to `Done`.
+- Next useful action is validating PR #39 and preparing an updated support-program application summary.
+
+## 2026-06-19
+
+### Repository Health
+
+- PR #36 has been merged after passing CI for route-level lazy loading and bundle splitting.
+- The public framework now has an explicit private workflow adapter boundary so commercial workflow cores can connect back to Tax AI without exposing customer data or credentials.
+
+### Framework Follow-up
+
+- Added `PrivateWorkflowAdapterManifest`, `WorkflowSnapshotSafetyContract`, and `WorkflowAdapterSnapshot` contracts.
+- Added documentation for public/private workflow adapter responsibilities.
+- Added TAI-016 to the collaboration queue for the private-core adapter boundary.
+
+## 2026-06-16
+
+### Repository Health
+
+- Open PR count was zero before this maintenance pass.
+- Open issues remained focused on README screenshots, bundle size/code splitting, and weekly queue maintenance.
+- `npm run check` passes, including 25 Vitest tests.
+
+### Performance Follow-up
+
+- Added route-level lazy loading for major feature modules in `App.tsx`.
+- Production build changed from a single 1,242.11 kB entry chunk to a 220.24 kB entry chunk with feature-specific async chunks.
+- The previous Vite warning for chunks larger than 500 kB no longer appears in the build output.
+
+### Queue Changes
+
+- Moved TAI-013 from `Backlog` to `Review`.
+- Next useful maintenance action is to close the duplicate bundle-size tracking issue after the code-splitting PR is merged.
 
 ## 2026-06-11
 

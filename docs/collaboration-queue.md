@@ -36,9 +36,10 @@ This repository uses a lightweight queue so Cursor and Codex can work independen
 | TAI-010 | Done | loyputh + Codex | Maintainer onboarding | Accept collaborator invitation, choose a first issue, and open a small scoped PR | `npm run check` | Completed: `loyputh` has write access and opened multiple passing PRs. |
 | TAI-011 | Active | Codex | Maintenance rhythm | Keep the collaboration queue, public issues, and release readiness notes updated weekly | GitHub issue/release checks | 2026-06-11 merge batch completed; next step is release planning for v0.2.0. |
 | TAI-012 | Done | loyputh | Testing | Introduce Vitest and unit test coverage for deterministic tax calculations | `npm run check` | Completed in PR #17; this also supports TAI-004. |
-| TAI-013 | Backlog | Codex | Performance | Track bundle size and add code splitting | `npm run check` | Issue #26 tracks the current Vite bundle-size warning. |
+| TAI-013 | Review | Codex | Performance | Track bundle size and add code splitting | `npm run check` | Implemented route-level lazy loading on `codex/lazy-load-feature-modules`; production entry chunk dropped from 1,242.11 kB to 220.24 kB and the Vite chunk warning was cleared. |
 | TAI-014 | Done | Codex | Release | Publish `v0.2.0` framework extraction release | `npm run check`, GitHub release checks | Completed: `v0.2.0` published from `main`. |
 | TAI-015 | Active | Codex | Documentation | Add README screenshots and architecture diagram | README render check | README badges and Mermaid architecture diagram are in progress; issue #31 remains open for screenshots. |
+| TAI-016 | Review | Codex | Framework adapters | Define the public/private workflow adapter boundary for private-core workflows that connect back to Tax AI | `npm run check` | Issue #37; added adapter manifest/snapshot contracts and documentation on `codex/private-workflow-adapter-boundary`. |
 
 ## Handoff Template
 

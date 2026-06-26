@@ -1,20 +1,21 @@
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { lazy, Suspense, useState, useEffect, useMemo } from 'react';
 import Sidebar from './components/Sidebar';
-import Dashboard from './components/Dashboard';
-import InvoiceManager from './components/InvoiceManager';
-import TaxDeclaration from './components/TaxDeclaration';
-import AIChatAssistant from './components/AIChatAssistant';
-import CrossBorderHub from './components/CrossBorderHub';
-import BlockchainLedger from './components/BlockchainLedger';
-import TRAM from './components/TRAM';
-import Settings from './components/Settings';
-import OpenPlatform from './components/OpenPlatform';
 import { Invoice, TaxSummary, InvoiceCategory, InvoiceType, DataSource, RecordStatus, EvidenceType, CompanySettings, TaxpayerType, Employee, Block, KnowledgeItem, ChatMessage, ChainProvider } from './types';
 import { createGenesisBlock, createBlock } from './services/blockchainService';
 import { loadAllFromLocalStorage, saveAllToLocalStorage, exportBackup, parseBackupFile, restoreFromBackup } from './services/workspacePersistence';
 import { calculateTaxSummary } from './services/taxCalculation';
 import { LayoutDashboard, FileText, MessageSquareText, Grid, Calculator, Globe, Link, Scale, Blocks, Settings as SettingsIcon } from 'lucide-react';
+
+const Dashboard = lazy(() => import('./components/Dashboard'));
+const InvoiceManager = lazy(() => import('./components/InvoiceManager'));
+const TaxDeclaration = lazy(() => import('./components/TaxDeclaration'));
+const AIChatAssistant = lazy(() => import('./components/AIChatAssistant'));
+const CrossBorderHub = lazy(() => import('./components/CrossBorderHub'));
+const BlockchainLedger = lazy(() => import('./components/BlockchainLedger'));
+const TRAM = lazy(() => import('./components/TRAM'));
+const Settings = lazy(() => import('./components/Settings'));
+const OpenPlatform = lazy(() => import('./components/OpenPlatform'));
 
 const App: React.FC = () => {
   const [currentTab, setCurrentTab] = useState('dashboard');
@@ -240,7 +241,9 @@ const App: React.FC = () => {
       
       <main className="flex-1 ml-0 md:ml-64 p-4 md:p-8 pb-24 md:pb-8 print:ml-0 print:p-0 transition-all duration-300">
         <div className="max-w-7xl mx-auto h-full print:max-w-none">
-          {renderContent()}
+          <Suspense fallback={<ModuleLoading />}>
+            {renderContent()}
+          </Suspense>
         </div>
       </main>
 
@@ -251,6 +254,20 @@ const App: React.FC = () => {
     </div>
   );
 };
+
+const ModuleLoading: React.FC = () => (
+  <div className="min-h-[320px] rounded-2xl border border-slate-200 bg-white shadow-sm animate-pulse" aria-label="Loading module">
+    <div className="p-6 space-y-5">
+      <div className="h-5 w-40 rounded bg-slate-200" />
+      <div className="grid gap-4 md:grid-cols-3">
+        <div className="h-24 rounded-xl bg-slate-100" />
+        <div className="h-24 rounded-xl bg-slate-100" />
+        <div className="h-24 rounded-xl bg-slate-100" />
+      </div>
+      <div className="h-40 rounded-xl bg-slate-100" />
+    </div>
+  </div>
+);
 
 // Mobile Bottom Navigation Component
 const MobileNav: React.FC<{ currentTab: string, setCurrentTab: (t: string) => void }> = ({ currentTab, setCurrentTab }) => {
