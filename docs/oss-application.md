@@ -13,7 +13,7 @@ Tax AI is an open source framework for tax-focused human-AI collaboration. It pr
 - License: MIT
 - Stack: TypeScript, React, Vite
 - Status: framework baseline, not production tax software
-- Community signal: 60+ GitHub stars and 2 forks after the public demo and `v0.2.0` release.
+- Community signal: 60+ GitHub stars and 2 forks after the public demo and `v0.3.0` release.
 
 ## Public Benefit
 
@@ -53,9 +53,10 @@ The project is a good fit for Codex because much of the work is repo-wide and re
 6. Aligned SQL and Prisma schema drafts with the domain contracts.
 7. Moved workspace persistence and backup handling out of the app shell.
 8. Published `v0.2.0`, launched a GitHub Pages demo, and reached 60+ GitHub stars.
+9. Published `v0.3.0` with route-level lazy loading, private workflow adapter contracts, and refreshed open source support notes.
 
 ## Near-Term Milestones
 
-1. Validate the GitHub Pages demo after the first deployment.
-2. Add screenshots and architecture diagrams to the README.
-3. Continue weekly maintenance while the Codex for OSS application is pending.
+1. Add additional README screenshots for module-specific views.
+2. Prepare an updated Codex for OSS application with `v0.3.0` evidence.
+3. Continue weekly maintenance while the support application is pending.

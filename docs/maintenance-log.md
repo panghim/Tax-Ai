@@ -2,6 +2,21 @@
 
 This log records lightweight maintenance passes for Tax AI. It is intended to keep the open source project visibly maintained without creating noisy code churn.
 
+## 2026-06-30
+
+### Repository Health
+
+- `v0.3.0` is the latest public release.
+- Open PR count is zero.
+- Open issues are focused on README screenshots and ongoing weekly maintenance.
+- Public traction remains 60+ GitHub stars and 2 forks.
+
+### Release Follow-up
+
+- Added `docs/releases/v0.3.0.md`.
+- Updated README, roadmap and open source application notes to reference `v0.3.0`.
+- Kept TAI-015 open for additional module-specific README screenshots.
+
 ## 2026-06-23
 
 ### Repository Health
