@@ -118,11 +118,12 @@ Tax AI is being prepared for public open source collaboration. The current suppo
 
 - `v0.1.0`: open source framework baseline.
 - `v0.2.0`: framework extraction release covering AI provider adapters, deterministic tax calculation tests, workspace persistence, integration registry extraction, schema alignment, and invoice workbench component split.
+- `v0.3.0`: private workflow adapter boundary release covering route-level lazy loading, safe private-core workflow snapshots, and refreshed open source support notes.
 
 ## Maintainer Activity
 
 - Public demo deployed with GitHub Pages.
-- `v0.2.0` release published after a maintainer PR batch.
+- `v0.3.0` release published after the private workflow adapter and bundle-splitting maintenance batch.
 - `loyputh` added as a maintainer with write access.
 - Community traction has reached 60+ GitHub stars and 2 forks.
 - Weekly maintenance records are kept in [docs/maintenance-log.md](docs/maintenance-log.md).

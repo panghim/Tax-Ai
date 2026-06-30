@@ -36,14 +36,19 @@
 
 ## Current Release Focus
 
-`v0.2.0` should package the completed framework extraction batch:
+`v0.3.0` packages the public/private workflow boundary and performance maintenance batch:
 
-- AI provider adapter boundary.
-- deterministic tax calculation service and tests.
-- workspace persistence service.
-- typed integration registry.
-- SQL and Prisma schema alignment.
-- invoice workbench component split.
+- route-level lazy loading for major feature modules.
+- private workflow adapter manifest and snapshot contracts.
+- safe public/private workflow documentation.
+- refreshed open source support notes.
+- verified `npm run check` with 25 Vitest tests.
+
+Next release focus:
+
+- Add additional README screenshots for module-specific views.
+- Promote private workflow adapter examples without exposing private workflow internals.
+- Add policy-source metadata for tax-sensitive outputs.
 
 ## Public Demo
 
